@@ -18,6 +18,7 @@ function Home() {
    const [alert, setAlert] = useState({show:false})
    const [edit, setEdit] = useState (false)
    const [id, setId] = useState(0)
+
    useEffect(()=>{
     localStorage.setItem('expenses', JSON.stringify(expenses))
    })
@@ -82,6 +83,7 @@ function Home() {
     setAmount(amount)
     setEdit(true)
     setId(id)
+     
   }
 
   return <>
