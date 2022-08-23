@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "./components/Navbar";
 import Home from "./Home";
 
 
@@ -8,7 +9,8 @@ import Home from "./Home";
 function App() {
   return (
 
-    <div> 
+    <div className="bg-[#141625] h-screen"> 
+        <Navbar/>
         <Home/>
     </div>
 
