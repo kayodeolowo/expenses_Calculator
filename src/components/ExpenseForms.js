@@ -3,27 +3,29 @@ import React from 'react'
 const ExpenseForms = ({charge, amount, handleCharge, handleAmount, handleSubmit, edit}) => {
   return (
     <form onSubmit={handleSubmit} className="w-full text-white "> 
-       <div className='w-11/12 md:8/12 lg:w-7/12  mx-auto border-2'> 
-               <div className=' md:flex  justify-between '> 
-              <div >
-              <div> 
-                <label htmlFor='charge' className='bg-[#1E2139]'>
-                      Services/Product
+       <div className='w-11/12 md:8/12 lg:w-7/12  mx-auto  rounded-lg bg-[#1E2139]'> 
+               <div className='md:flex   md:justify-between'> 
+              <div className='mt-4 pt-4 md:pt-0 mx-4  '>
+
+
+              <div className=' mt-4 md:mt-0 flex justify-between'> 
+                <label htmlFor='charge' className='bg-[#1E2139] text-[15px]  mt-2'>
+                      Products
                 </label>
                 <input
-                 maxLength={12} className='bg-[#1E2139]'   type="text" name='charge' placeholder='e.g Electricity'
+                 maxLength={12} className='bg-[#1E2139] md:ml-4 rounded-lg border-2 border-blue-500 py-2 md:py-0'   type="text" name='charge' placeholder='e.g Electricity'
                 value={charge}
                 onChange={handleCharge}
                 /> 
               </div>
             </div>
 
-            <div className='border-2 border-red-300 rounded-lg bg-[#1E2139]'>
-              <div> 
-                <label htmlFor='amount'>
+            <div className=' mx-4 rounded-lg bg-[#1E2139] mt-4'>
+              <div className='flex justify-between'> 
+                <label htmlFor='amount' className='text-[15px] mt-2'>
                       Amount
                 </label>
-                <input maxLength={6} type="number" className='bg-[#1E2139] rounded-sm text-black '  name='amount' placeholder='e.g $200'
+                <input maxLength={6} type="number" className='bg-[#1E2139] rounded-lg border-2 border-blue-500 py-2 md:py-0    md:ml-4 '  name='amount' placeholder='e.g $200'
                   value={amount}
                 onChange={handleAmount}
                 
@@ -35,7 +37,7 @@ const ExpenseForms = ({charge, amount, handleCharge, handleAmount, handleSubmit,
             
         </div>
           <div className='flex justify-center mb-4'> 
-                <button className='' type='submit'> {edit ? 'edit' : 'submit' } </button>
+                <button className=' rounded-lg bg-red-600 px-4 py-0.5 mt-4 mb-2' type='submit'> {edit ? 'edit' : 'submit' } </button>
           </div>
        </div>
     </form>
