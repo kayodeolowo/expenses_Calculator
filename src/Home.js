@@ -9,6 +9,7 @@ import Alert from "./components/Alert";
 
 
 
+
 const initialExpenses = localStorage.getItem('expenses')? JSON.parse(localStorage.getItem('expenses')) : [];
 
 function Home() {
@@ -51,7 +52,7 @@ function Home() {
       }else {
            const singleExpense = {id:uuidv4(), charge, amount};
       setExpenses([...expenses, singleExpense]); //adds the new input 
-      handleAlert({type:'succes', text:"item added"})
+      handleAlert({type:'succes', text:"Item added succesfully"})
       }
      
       setCharge(''); //clears up the form after submit
@@ -59,7 +60,7 @@ function Home() {
 
     }  else {
     
-         handleAlert({type:'danger', text:"add value" })
+         handleAlert({type:'danger', text:"Please Fill the form properly" })
     }
   }
 
@@ -72,7 +73,7 @@ function Home() {
   const handleDelete = (id) => {
     let tempExpenses = expenses.filter(item=>item.id !==id)
     setExpenses(tempExpenses)
-    handleAlert({text:"item deleted"})
+    handleAlert({id:"del", text:"Item deleted"})
   }
 
   const handleEdit = (id) => {
@@ -87,7 +88,10 @@ function Home() {
   return <>
   {alert.show &&  <Alert type={alert.type} text={alert.text} />}
     <Alert/>
-      <h1> budget calc </h1>
+      <div className='w-3/4 mx-auto flex justify-center mb-2'>
+             <h1 className=' text-slate-400'> Fill in your Expenses </h1>
+        </div> 
+     
       <main > 
         <ExpenseForms //passing props
         charge={charge} 
@@ -96,20 +100,25 @@ function Home() {
          handleCharge={handleCharge} 
          handleSubmit={handleSubmit}
          edit={edit}/>
+
+        <div className='w-3/5 md:w-1/4 mx-auto flex justify-center mt-8 text-white bg-green-600 rounded-lg '> 
+           <h1 className='   py-2 '>Total: <span>  ${expenses.reduce((acc,curr)=>{
+// totals the amount input
+        return acc += parseInt(curr.amount)
+      },0)}</span> </h1> 
+
+      </div>
          
        
          <Expenselists 
         expenses={expenses}
         handleDelete={handleDelete}
         handleEdit={handleEdit}
-        clearItems={clearItems}
-        /> 
+        clearItems={clearItems}        /> 
+        
       </main>
 
-      <h1>total: <span>  ${expenses.reduce((acc,curr)=>{
-// totals the amount input
-        return acc += parseInt(curr.amount)
-      },0)}</span> </h1> 
+      
   </>
 }
 

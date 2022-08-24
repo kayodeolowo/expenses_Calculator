@@ -11,7 +11,10 @@ const Expenselists = ({expenses,handleEdit, handleDelete,clearItems}) => {
                  handleEdit={handleEdit}/>
             })}
         </ul>
-        {expenses.length>0 && <button onClick={clearItems}> clear  </button>}
+        <div className='w-2/4 md:w-1/4 mx-auto flex  justify-center text-white  pt-4 '> 
+                 {expenses.length>0 && <button className='  mb-4 text-lg bg-red-500 px-[20px] rounded-lg ' onClick={clearItems}> Delete All  </button>}
+        </div>
+       
    </>
   )
 }
